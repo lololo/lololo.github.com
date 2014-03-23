@@ -1,15 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://lololo.github.io/blog/archives/</loc>
-        <lastmod>2014-03-23T10:36:57+08:00</lastmod>
+        <loc>http://lololo.github.com/blog/2014/02/28/hello-world/</loc>
+        <lastmod>2014-03-23T10:47:47+08:00</lastmod>
     </url>
     <url>
-        <loc>http://lololo.github.io/</loc>
-        <lastmod>2014-03-23T10:36:57+08:00</lastmod>
+        <loc>http://lololo.github.com/blog/2014/02/28/nslog-shu-chu-kong-zhi/</loc>
+        <lastmod>2014-03-23T10:47:47+08:00</lastmod>
     </url>
     <url>
-        <loc>http://lololo.github.io/robots.txt</loc>
+        <loc>http://lololo.github.com/blog/2014/03/01/album-god-translation/</loc>
+        <lastmod>2014-03-23T10:47:47+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c/</loc>
+        <lastmod>2014-03-23T10:47:47+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lololo.github.com/blog/archives/</loc>
+        <lastmod>2014-03-23T10:47:47+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lololo.github.com/blog/categories/</loc>
+        <lastmod>2014-03-23T10:45:15+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lololo.github.com/</loc>
+        <lastmod>2014-03-23T10:47:47+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lololo.github.com/robots.txt</loc>
         <lastmod>2014-03-23T10:36:57+08:00</lastmod>
     </url>
 </urlset>

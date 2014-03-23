@@ -1,16 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[小院幽径]]></title>
-  <link href="http://lololo.github.io/atom.xml" rel="self"/>
-  <link href="http://lololo.github.io/"/>
-  <updated>2014-03-23T10:37:10+08:00</updated>
-  <id>http://lololo.github.io/</id>
+  <title><![CDATA[自留地]]></title>
+  <link href="http://lololo.github.com/atom.xml" rel="self"/>
+  <link href="http://lololo.github.com/"/>
+  <updated>2014-03-23T10:55:11+08:00</updated>
+  <id>http://lololo.github.com/</id>
   <author>
     <name><![CDATA[lololo]]></name>
-    
+    <email><![CDATA[lololo@live.cn]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Objective-C 语言中的类类型]]></title>
+    <link href="http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
+    <updated>2014-03-05T11:07:38+08:00</updated>
+    <id>http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c</id>
+    <content type="html"><![CDATA[<p>小菜鸟在学习使用UICollectionView的时候发现个函数：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerClass:</span><span class="p">(</span><span class="n">Class</span><span class="p">)</span><span class="nv">cellClass</span> <span class="nf">forCellWithReuseIdentifier:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这个函数允许用户为不同的标示设置对应的类型，生成UICollectionCell组建UICollectionView时，会根据 identifier的不同创建不同类型的Cell。</p>
+
+<p>其中这个 <code>Class</code> 就是Obj-c中的<code>类类型</code>。</p>
+
+<p>从UICllection的使用可以看出类类型在自定义类的使用中非常方便。</p>
+
+<p>下面是类类型的使用：</p>
+
+<h1>得到类类型</h1>
+
+<p>每个类都有类类型生成方法：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">+</span> <span class="p">(</span><span class="n">Class</span><span class="p">)</span><span class="nf">class</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接受类类型</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="n">Class</span> <span class="n">CLString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="n">class</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>使用类类型</h1>
+
+<p>使用类类型也非常简单</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="kt">id</span> <span class="n">aString</span> <span class="o">=</span> <span class="p">[</span><span class="n">CLString</span> <span class="n">new</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>或者</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="kt">id</span> <span class="n">aString</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CLString</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这时 aString就是NSString的一个实例了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[21个逗逼的英文专辑神翻译，神一样的存在！]]></title>
+    <link href="http://lololo.github.com/blog/2014/03/01/album-god-translation/"/>
+    <updated>2014-03-01T15:40:47+08:00</updated>
+    <id>http://lololo.github.com/blog/2014/03/01/album-god-translation</id>
+    <content type="html"><![CDATA[<p>最近旅游哥再豆瓣的音乐里发现了一些好玩的东西，一些冷门专辑的中文译名让人感叹这才是神翻译啊。实在太好笑了，来一发大家感受下。</p>
+
+<h3>1</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0.jpg" alt="" /></p>
+
+<h3>2</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-1.jpg" alt="" /></p>
+
+<h3>3</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-2.jpg" alt="" /></p>
+
+<h3>4</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-3.jpg" alt="" /></p>
+
+<h3>5</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-4.jpg" alt="" /></p>
+
+<h3>6</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-5.jpg" alt="" /></p>
+
+<h3>7</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-6.jpg" alt="" /></p>
+
+<h3>8</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-7.jpg" alt="" /></p>
+
+<h3>9</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-8.jpg" alt="" /></p>
+
+<h3>10</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-9.jpg" alt="" /></p>
+
+<h3>11</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-10.jpg" alt="" /></p>
+
+<h3>12</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-11.jpg" alt="" /></p>
+
+<h3>13</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-12.jpg" alt="" /></p>
+
+<h3>14</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-13.jpg" alt="" /></p>
+
+<h3>15</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-14.jpg" alt="" /></p>
+
+<h3>16</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-15.jpg" alt="" /></p>
+
+<h3>17</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-16.jpg" alt="" /></p>
+
+<h3>18</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-17.jpg" alt="" /></p>
+
+<h3>19</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-18.jpg" alt="" /></p>
+
+<h3>20</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-19.jpg" alt="" /></p>
+
+<h3>21</h3>
+
+<p><img src="http://ilost.qiniudn.com/images0-20.jpg" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[NSLog 输出控制]]></title>
+    <link href="http://lololo.github.com/blog/2014/02/28/nslog-shu-chu-kong-zhi/"/>
+    <updated>2014-02-28T14:48:17+08:00</updated>
+    <id>http://lololo.github.com/blog/2014/02/28/nslog-shu-chu-kong-zhi</id>
+    <content type="html"><![CDATA[<p>NSLog 在 iOS开发调试时非常方便，但也很耗资源。在APP正式发布时把NSLog一条一条注释掉太过麻烦，而且不利于后续开发维护。使用如下操作可以简化操作:</p>
+
+<p>在 <strong>&lsquo;PROGJECTNAME&rsquo;-Prefix.pch</strong> 文件中添加</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#ifdef DEBUG</span>
+</span><span class='line'><span class="cp"># define LOG(...) NSLog(__VA_ARGS__)</span>
+</span><span class='line'><span class="cp">#else</span>
+</span><span class='line'><span class="cp"># define LOG(...) </span><span class="cm">/* */</span><span class="cp"></span>
+</span><span class='line'><span class="cp">#endif</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在 <strong>TARGETS->build Settings->Other C Flags->Debug</strong> 中添加 <strong>”-DDEBUG”</strong>
+这样就配置完成了
+<img src="http://ilost.qiniudn.com/imagesdebug_nslog.png" alt="配置示意图" /></p>
+
+<p>在需要输出的地方把原来的 <strong>NSLog()</strong> 改为 <strong>LOG()</strong> 就可以了
+debug模式下输出，release模式下不输出</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://lololo.github.com/blog/2014/02/28/hello-world/"/>
+    <updated>2014-02-28T12:01:54+08:00</updated>
+    <id>http://lololo.github.com/blog/2014/02/28/hello-world</id>
+    <content type="html"><![CDATA[<p>搞了一天多，终于把 Octopress 环境搞定了， 以后就用 Octopress 发 Blog 了，哈哈</p>
+]]></content>
+  </entry>
   
 </feed>

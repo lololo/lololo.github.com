@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: iOS开发 | 自留地]]></title>
+  <link href="http://lololo.github.com/blog/categories/ioskai-fa/atom.xml" rel="self"/>
+  <link href="http://lololo.github.com/"/>
+  <updated>2014-03-23T10:55:11+08:00</updated>
+  <id>http://lololo.github.com/</id>
+  <author>
+    <name><![CDATA[lololo]]></name>
+    <email><![CDATA[lololo@live.cn]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Objective-C 语言中的类类型]]></title>
+    <link href="http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
+    <updated>2014-03-05T11:07:38+08:00</updated>
+    <id>http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c</id>
+    <content type="html"><![CDATA[<p>小菜鸟在学习使用UICollectionView的时候发现个函数：</p>
+
+<p><code>objective-c
+- (void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier;
+</code>
+这个函数允许用户为不同的标示设置对应的类型，生成UICollectionCell组建UICollectionView时，会根据 identifier的不同创建不同类型的Cell。</p>
+
+<p>其中这个 <code>Class</code> 就是Obj-c中的<code>类类型</code>。</p>
+
+<p>从UICllection的使用可以看出类类型在自定义类的使用中非常方便。</p>
+
+<p>下面是类类型的使用：</p>
+
+<h1>得到类类型</h1>
+
+<p>每个类都有类类型生成方法：
+<code>
++ (Class)class;
+</code>
+接受类类型
+<code>
+Class CLString = [NSString class];
+</code></p>
+
+<h1>使用类类型</h1>
+
+<p>使用类类型也非常简单
+<code>
+id aString = [CLString new];  
+</code>
+或者
+<code>
+id aString = [[CLString alloc] init];  
+</code>
+这时 aString就是NSString的一个实例了。</p>
+]]></content>
+  </entry>
+  
+</feed>

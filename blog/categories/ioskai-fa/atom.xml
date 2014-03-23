@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: iOS开发 | 自留地]]></title>
-  <link href="http://lololo.github.com/blog/categories/ioskai-fa/atom.xml" rel="self"/>
-  <link href="http://lololo.github.com/"/>
-  <updated>2014-03-23T10:55:11+08:00</updated>
-  <id>http://lololo.github.com/</id>
+  <link href="blog.lololo.net/blog/categories/ioskai-fa/atom.xml" rel="self"/>
+  <link href="blog.lololo.net/"/>
+  <updated>2014-03-23T13:32:17+08:00</updated>
+  <id>blog.lololo.net/</id>
   <author>
     <name><![CDATA[lololo]]></name>
     <email><![CDATA[lololo@live.cn]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Objective-C 语言中的类类型]]></title>
-    <link href="http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
+    <link href="blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
     <updated>2014-03-05T11:07:38+08:00</updated>
-    <id>http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c</id>
+    <id>blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c</id>
     <content type="html"><![CDATA[<p>小菜鸟在学习使用UICollectionView的时候发现个函数：</p>
 
 <p><code>objective-c
@@ -53,6 +53,37 @@ id aString = [CLString new];
 id aString = [[CLString alloc] init];  
 </code>
 这时 aString就是NSString的一个实例了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[NSLog 输出控制]]></title>
+    <link href="blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi/"/>
+    <updated>2014-02-28T14:48:17+08:00</updated>
+    <id>blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi</id>
+    <content type="html"><![CDATA[<p>NSLog 在 iOS开发调试时非常方便，但也很耗资源。在APP正式发布时把NSLog一条一条注释掉太过麻烦，而且不利于后续开发维护。使用如下操作可以简化操作:</p>
+
+<p>在 <strong>&lsquo;PROGJECTNAME&rsquo;-Prefix.pch</strong> 文件中添加</p>
+
+<p>``` c</p>
+
+<h1>ifdef DEBUG</h1>
+
+<h1>define LOG(&hellip;) NSLog(<strong>VA_ARGS</strong>)</h1>
+
+<h1>else</h1>
+
+<h1>define LOG(&hellip;) /<em> </em>/</h1>
+
+<h1>endif</h1>
+
+<p>```
+在 <strong>TARGETS->build Settings->Other C Flags->Debug</strong> 中添加 <strong>”-DDEBUG”</strong>
+这样就配置完成了
+<img src="http://ilost.qiniudn.com/imagesdebug_nslog.png" alt="配置示意图" /></p>
+
+<p>在需要输出的地方把原来的 <strong>NSLog()</strong> 改为 <strong>LOG()</strong> 就可以了
+debug模式下输出，release模式下不输出</p>
 ]]></content>
   </entry>
   

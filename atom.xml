@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[自留地]]></title>
-  <link href="http://lololo.github.com/atom.xml" rel="self"/>
-  <link href="http://lololo.github.com/"/>
-  <updated>2014-03-23T10:55:11+08:00</updated>
-  <id>http://lololo.github.com/</id>
+  <link href="blog.lololo.net/atom.xml" rel="self"/>
+  <link href="blog.lololo.net/"/>
+  <updated>2014-03-23T13:32:17+08:00</updated>
+  <id>blog.lololo.net/</id>
   <author>
     <name><![CDATA[lololo]]></name>
     <email><![CDATA[lololo@live.cn]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Objective-C 语言中的类类型]]></title>
-    <link href="http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
+    <link href="blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
     <updated>2014-03-05T11:07:38+08:00</updated>
-    <id>http://lololo.github.com/blog/2014/03/05/the-class-of-class-in-objective-c</id>
+    <id>blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c</id>
     <content type="html"><![CDATA[<p>小菜鸟在学习使用UICollectionView的时候发现个函数：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -71,9 +71,9 @@
   
   <entry>
     <title type="html"><![CDATA[21个逗逼的英文专辑神翻译，神一样的存在！]]></title>
-    <link href="http://lololo.github.com/blog/2014/03/01/album-god-translation/"/>
+    <link href="blog.lololo.net/blog/2014/03/01/album-god-translation/"/>
     <updated>2014-03-01T15:40:47+08:00</updated>
-    <id>http://lololo.github.com/blog/2014/03/01/album-god-translation</id>
+    <id>blog.lololo.net/blog/2014/03/01/album-god-translation</id>
     <content type="html"><![CDATA[<p>最近旅游哥再豆瓣的音乐里发现了一些好玩的东西，一些冷门专辑的中文译名让人感叹这才是神翻译啊。实在太好笑了，来一发大家感受下。</p>
 
 <h3>1</h3>
@@ -164,9 +164,9 @@
   
   <entry>
     <title type="html"><![CDATA[NSLog 输出控制]]></title>
-    <link href="http://lololo.github.com/blog/2014/02/28/nslog-shu-chu-kong-zhi/"/>
+    <link href="blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi/"/>
     <updated>2014-02-28T14:48:17+08:00</updated>
-    <id>http://lololo.github.com/blog/2014/02/28/nslog-shu-chu-kong-zhi</id>
+    <id>blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi</id>
     <content type="html"><![CDATA[<p>NSLog 在 iOS开发调试时非常方便，但也很耗资源。在APP正式发布时把NSLog一条一条注释掉太过麻烦，而且不利于后续开发维护。使用如下操作可以简化操作:</p>
 
 <p>在 <strong>&lsquo;PROGJECTNAME&rsquo;-Prefix.pch</strong> 文件中添加</p>
@@ -195,9 +195,9 @@ debug模式下输出，release模式下不输出</p>
   
   <entry>
     <title type="html"><![CDATA[Hello World]]></title>
-    <link href="http://lololo.github.com/blog/2014/02/28/hello-world/"/>
+    <link href="blog.lololo.net/blog/2014/02/28/hello-world/"/>
     <updated>2014-02-28T12:01:54+08:00</updated>
-    <id>http://lololo.github.com/blog/2014/02/28/hello-world</id>
+    <id>blog.lololo.net/blog/2014/02/28/hello-world</id>
     <content type="html"><![CDATA[<p>搞了一天多，终于把 Octopress 环境搞定了， 以后就用 Octopress 发 Blog 了，哈哈</p>
 ]]></content>
   </entry>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: iOS技巧 | 曲径小林]]></title>
+  <link href="blog.lololo.net/blog/categories/iosji-qiao/atom.xml" rel="self"/>
+  <link href="blog.lololo.net/"/>
+  <updated>2014-03-30T23:30:29+08:00</updated>
+  <id>blog.lololo.net/</id>
+  <author>
+    <name><![CDATA[lololo]]></name>
+    <email><![CDATA[lololo@live.cn]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[修改iOS7下UITableView分割线样式]]></title>
+    <link href="blog.lololo.net/blog/2014/03/30/tableview-separator-line/"/>
+    <updated>2014-03-30T23:16:08+08:00</updated>
+    <id>blog.lololo.net/blog/2014/03/30/tableview-separator-line</id>
+    <content type="html"><![CDATA[<p>默认情况下UITableView的分割线左侧稍微短一点：</p>
+
+<p><img src="http://ilost.qiniudn.com/tap1iOStapSeprate02.jpeg" alt="此处输入图片的描述" /></p>
+
+<p>原因是在iOS7 下UITableView多了一个属性：</p>
+
+<p><img src="http://ilost.qiniudn.com/tap1iOStapSeprate01.jpeg" alt="此处输入图片的描述" /></p>
+
+<p>所以只要修改一下这个属性就能更改分割线的样式了
+如改为左侧正常右侧短一点：</p>
+
+<pre><code>tv.separatorInset = UIEdgeInsetsMake(0, 0, 0, 15);
+</code></pre>
+
+<p>效果：</p>
+
+<p><img src="http://ilost.qiniudn.com/tap1iOStapSeprate03.jpeg" alt="此处输入图片的描述" /></p>
+
+<p>也可以直接在Storyboard中直接设置：</p>
+
+<p><img src="http://ilost.qiniudn.com/tap1iOStapSeprate04.jpeg" alt="此处输入图片的描述" /></p>
+]]></content>
+  </entry>
+  
+</feed>

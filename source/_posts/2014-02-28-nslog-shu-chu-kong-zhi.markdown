@@ -3,7 +3,7 @@ layout: post
 title: "NSLog 输出控制"
 date: 2014-02-28 14:48:17 +0800
 comments: true
-categories: 
+categories: "iOS开发" 
 ---
 NSLog 在 iOS开发调试时非常方便，但也很耗资源。在APP正式发布时把NSLog一条一条注释掉太过麻烦，而且不利于后续开发维护。使用如下操作可以简化操作:
 

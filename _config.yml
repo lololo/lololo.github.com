@@ -2,8 +2,8 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://lololo.github.com
-title: 自留地
+url: blog.lololo.net
+title: 曲径小林
 subtitle: 明天会更好
 author: lololo
 simple_search: https://www.google.com/search
@@ -90,8 +90,12 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: nextme
-disqus_show_comment_count: false
+#disqus_short_name: nextme
+#disqus_show_comment_count: false
+
+# duoshuo comments
+duoshuo_comments: ture
+duoshuo_short_name: lololo
 
 # Google Analytics
 google_analytics_tracking_id: UA-32131806-1

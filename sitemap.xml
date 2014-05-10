@@ -1,47 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>blog.lololo.net/blog/2014/02/28/hello-world/</loc>
-        <lastmod>2014-03-23T13:25:43+08:00</lastmod>
+        <loc>http://lololo.github.io/blog/2014/02/28/hello-world/</loc>
+        <lastmod>2014-05-10T18:07:02+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi/</loc>
-        <lastmod>2014-03-23T13:25:43+08:00</lastmod>
+        <loc>http://lololo.github.io/blog/2014/02/28/nslog-shu-chu-kong-zhi/</loc>
+        <lastmod>2014-05-10T18:07:02+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/blog/2014/03/01/album-god-translation/</loc>
-        <lastmod>2014-03-23T13:25:43+08:00</lastmod>
+        <loc>http://lololo.github.io/blog/2014/03/05/the-class-of-class-in-objective-c/</loc>
+        <lastmod>2014-05-10T18:07:02+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c/</loc>
-        <lastmod>2014-03-23T13:25:43+08:00</lastmod>
+        <loc>http://lololo.github.io/blog/2014/03/29/screenlock/</loc>
+        <lastmod>2014-05-10T18:07:02+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/blog/2014/03/26/but-you-didnt/</loc>
-        <lastmod>2014-03-26T18:59:57+08:00</lastmod>
+        <loc>http://lololo.github.io/blog/2014/03/30/tableview-separator-line/</loc>
+        <lastmod>2014-05-10T18:07:02+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/blog/2014/03/29/screenlock/</loc>
-        <lastmod>2014-03-29T23:54:51+08:00</lastmod>
+        <loc>http://lololo.github.io/blog/2014/05/10/statusbar/</loc>
+        <lastmod>2014-05-10T18:07:02+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/blog/2014/03/30/tableview-separator-line/</loc>
-        <lastmod>2014-03-30T23:30:19+08:00</lastmod>
+        <loc>http://lololo.github.io/blog/archives/</loc>
+        <lastmod>2014-05-10T17:53:24+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/blog/archives/</loc>
-        <lastmod>2014-03-30T23:30:19+08:00</lastmod>
+        <loc>http://lololo.github.io/blog/categories/</loc>
+        <lastmod>2014-04-21T13:01:45+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/blog/categories/</loc>
-        <lastmod>2014-03-23T10:45:15+08:00</lastmod>
+        <loc>http://lololo.github.io/</loc>
+        <lastmod>2014-05-10T17:53:24+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/</loc>
-        <lastmod>2014-03-30T23:30:19+08:00</lastmod>
+        <loc>http://lololo.github.io/more/2014-03-01-album-god-translation.html</loc>
+        <lastmod>2014-05-10T18:07:02+08:00</lastmod>
     </url>
     <url>
-        <loc>blog.lololo.net/robots.txt</loc>
-        <lastmod>2014-03-23T10:36:57+08:00</lastmod>
+        <loc>http://lololo.github.io/more/2014-03-26-but-you-didnt.html</loc>
+        <lastmod>2014-05-10T18:07:02+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lololo.github.io/robots.txt</loc>
+        <lastmod>2014-04-21T13:01:45+08:00</lastmod>
     </url>
 </urlset>

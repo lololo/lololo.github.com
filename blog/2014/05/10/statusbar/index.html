@@ -1,0 +1,252 @@
+
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>iOS7 StatusBar 使用小结 - 下雨了</title>
+	<meta name="author" content="lololo">
+
+	
+	<meta name="description" content="iOS7 StatusBar 使用小结 iOS7 中的StatusBar和之前版本的相比发生了很大变化，在iOS7下对statusbar的使用需要全新的方法，现在就总结以下statusbar的方法： 样式
+显示和隐藏
+动画效果
+默认无StatusBar 1. 样式 StatusBar有两种样式 &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="下雨了" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://lololo.github.io/blog/2014/05/10/statusbar/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+  
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-32131806-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("lololo@live.cn") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+</div>
+
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="http://about.me/shashankmehta">About</a></li>
+    <li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+			<a class="email" href="mailto:lololo@live.cn" title="Email">Email</a>
+		
+		
+		
+		
+		
+			<a class="github" href="https://github.com/lololo" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">iOS7 StatusBar 使用小结</h1>
+	<div class="entry-content" itemprop="articleBody"><p>iOS7 中的StatusBar和之前版本的相比发生了很大变化，在iOS7下对statusbar的使用需要全新的方法，现在就总结以下statusbar的方法：</p>
+
+<ul>
+<li>样式</li>
+<li>显示和隐藏</li>
+<li>动画效果</li>
+<li>默认无StatusBar</li>
+</ul>
+
+
+<h1>1. 样式</h1>
+
+<p>StatusBar有两种样式：
+UIStatusBarStyleDefault :</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_default.png" alt="default" /></p>
+
+<ul>
+<li>UIStatusBarStyleLightContent</li>
+</ul>
+
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_light.png" alt="LightContent " /></p>
+
+<p>要改变StatusBar的显示样式需要在UIViewController中重载：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (UIStatusBarStyle)preferredStatusBarStyle
+</span><span class='line'>{
+</span><span class='line'>    return UIStatusBarStyleLightContent;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这个方法不能直接调用，在需要改变样式的地方调用：[self setNeedsStatusBarAppearanceUpdate]</p>
+
+<p>示例：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)viewWillAppear:(BOOL)animated
+</span><span class='line'>{
+</span><span class='line'>    [self setNeedsStatusBarAppearanceUpdate];
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>2. 显示和隐藏</h1>
+
+<p>显示和隐藏StatusBar只要在UIViewController中重载：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (BOOL)prefersStatusBarHidden
+</span><span class='line'>{
+</span><span class='line'>    return YES;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>同样式改变一样需要调用 [self setNeedsStatusBarAppearanceUpdate] 方法</p>
+
+<h1>3. 动画效果</h1>
+
+<p>现在有两种动画效果：<code>UIStatusBarAnimationFade ,UIStatusBarAnimationSlide</code>.从他们的名字可以得知他的具体是什么眼的效果。 实现动画需要重载：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>- (UIStatusBarAnimation )preferredStatusBarUpdateAnimation
+</span><span class='line'>{
+</span><span class='line'>    return UIStatusBarAnimationSlide;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是重载这个方法后，并没有动画效果。这时，我们需要把 [self setNeedsStatusBarAppearanceUpdate] 放在动画block中执行：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[UIView animateWithDuration:0.3
+</span><span class='line'>                 animations:^{
+</span><span class='line'>                    [self setNeedsStatusBarAppearanceUpdate];
+</span><span class='line'>}];
+</span><span class='line'>                             </span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样动画效果就出现了。</p>
+
+<h1>4. 默认无StatusBar</h1>
+
+<p>有一些应用默认就没有Statusbar如：</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_no__dome.png" alt="default" /></p>
+
+<p>这样的应用很丑，总感觉缺点什么，但是有些产品经理就是喜欢。</p>
+
+<p>要实现这种效果，最需要在项目配置plist文件总将<code>Status bar is initially hidden</code> 字段设置为
+<code>YES</code>, 添加<code>View controller-based status bar appearance</code> 字段, 并将值设置为 <code>NO</code>：</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_no.png" alt="default" /></p>
+
+<h2>其他</h2>
+
+<p>有一些体统提供的组建，如 发送邮件<code>MFMailComposeViewController</code>,无法更改Statabar样式，就是使用它的子类都无法实现，如果有朋友知道如何实现，一定要告诉小弟, 不胜感激</p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+
+    lololo
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+		</div>
+	</div>
+</body>
+</html>

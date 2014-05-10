@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[曲径小林]]></title>
-  <link href="blog.lololo.net/atom.xml" rel="self"/>
-  <link href="blog.lololo.net/"/>
-  <updated>2014-03-30T23:30:29+08:00</updated>
-  <id>blog.lololo.net/</id>
+  <title><![CDATA[下雨了]]></title>
+  <link href="http://lololo.github.io/atom.xml" rel="self"/>
+  <link href="http://lololo.github.io/"/>
+  <updated>2014-05-10T19:01:58+08:00</updated>
+  <id>http://lololo.github.io/</id>
   <author>
     <name><![CDATA[lololo]]></name>
     <email><![CDATA[lololo@live.cn]]></email>
@@ -14,10 +14,136 @@
 
   
   <entry>
+    <title type="html"><![CDATA[iOS7 StatusBar 使用小结]]></title>
+    <link href="http://lololo.github.io/blog/2014/05/10/statusbar/"/>
+    <updated>2014-05-10T17:49:02+08:00</updated>
+    <id>http://lololo.github.io/blog/2014/05/10/statusbar</id>
+    <content type="html"><![CDATA[<p>iOS7 中的StatusBar和之前版本的相比发生了很大变化，在iOS7下对statusbar的使用需要全新的方法，现在就总结以下statusbar的方法：</p>
+
+<ul>
+<li>样式</li>
+<li>显示和隐藏</li>
+<li>动画效果</li>
+<li>默认无StatusBar</li>
+</ul>
+
+
+<h1>1. 样式</h1>
+
+<p>StatusBar有两种样式：
+UIStatusBarStyleDefault :</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_default.png" alt="default" /></p>
+
+<ul>
+<li>UIStatusBarStyleLightContent</li>
+</ul>
+
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_light.png" alt="LightContent " /></p>
+
+<p>要改变StatusBar的显示样式需要在UIViewController中重载：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (UIStatusBarStyle)preferredStatusBarStyle
+</span><span class='line'>{
+</span><span class='line'>    return UIStatusBarStyleLightContent;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这个方法不能直接调用，在需要改变样式的地方调用：[self setNeedsStatusBarAppearanceUpdate]</p>
+
+<p>示例：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)viewWillAppear:(BOOL)animated
+</span><span class='line'>{
+</span><span class='line'>    [self setNeedsStatusBarAppearanceUpdate];
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>2. 显示和隐藏</h1>
+
+<p>显示和隐藏StatusBar只要在UIViewController中重载：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (BOOL)prefersStatusBarHidden
+</span><span class='line'>{
+</span><span class='line'>    return YES;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>同样式改变一样需要调用 [self setNeedsStatusBarAppearanceUpdate] 方法</p>
+
+<h1>3. 动画效果</h1>
+
+<p>现在有两种动画效果：<code>UIStatusBarAnimationFade ,UIStatusBarAnimationSlide</code>.从他们的名字可以得知他的具体是什么眼的效果。 实现动画需要重载：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>- (UIStatusBarAnimation )preferredStatusBarUpdateAnimation
+</span><span class='line'>{
+</span><span class='line'>    return UIStatusBarAnimationSlide;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是重载这个方法后，并没有动画效果。这时，我们需要把 [self setNeedsStatusBarAppearanceUpdate] 放在动画block中执行：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[UIView animateWithDuration:0.3
+</span><span class='line'>                 animations:^{
+</span><span class='line'>                    [self setNeedsStatusBarAppearanceUpdate];
+</span><span class='line'>}];
+</span><span class='line'>                             </span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样动画效果就出现了。</p>
+
+<h1>4. 默认无StatusBar</h1>
+
+<p>有一些应用默认就没有Statusbar如：</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_no__dome.png" alt="default" /></p>
+
+<p>这样的应用很丑，总感觉缺点什么，但是有些产品经理就是喜欢。</p>
+
+<p>要实现这种效果，最需要在项目配置plist文件总将<code>Status bar is initially hidden</code> 字段设置为
+<code>YES</code>, 添加<code>View controller-based status bar appearance</code> 字段, 并将值设置为 <code>NO</code>：</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_no.png" alt="default" /></p>
+
+<h2>其他</h2>
+
+<p>有一些体统提供的组建，如 发送邮件<code>MFMailComposeViewController</code>,无法更改Statabar样式，就是使用它的子类都无法实现，如果有朋友知道如何实现，一定要告诉小弟, 不胜感激</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[修改iOS7下UITableView分割线样式]]></title>
-    <link href="blog.lololo.net/blog/2014/03/30/tableview-separator-line/"/>
+    <link href="http://lololo.github.io/blog/2014/03/30/tableview-separator-line/"/>
     <updated>2014-03-30T23:16:08+08:00</updated>
-    <id>blog.lololo.net/blog/2014/03/30/tableview-separator-line</id>
+    <id>http://lololo.github.io/blog/2014/03/30/tableview-separator-line</id>
     <content type="html"><![CDATA[<p>默认情况下UITableView的分割线左侧稍微短一点：</p>
 
 <p><img src="http://ilost.qiniudn.com/tap1iOStapSeprate02.jpeg" alt="此处输入图片的描述" /></p>
@@ -44,83 +170,18 @@
   
   <entry>
     <title type="html"><![CDATA[ScreenLock]]></title>
-    <link href="blog.lololo.net/blog/2014/03/29/screenlock/"/>
+    <link href="http://lololo.github.io/blog/2014/03/29/screenlock/"/>
     <updated>2014-03-29T23:51:19+08:00</updated>
-    <id>blog.lololo.net/blog/2014/03/29/screenlock</id>
+    <id>http://lololo.github.io/blog/2014/03/29/screenlock</id>
     <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[但是你没有]]></title>
-    <link href="blog.lololo.net/blog/2014/03/26/but-you-didnt/"/>
-    <updated>2014-03-26T18:11:09+08:00</updated>
-    <id>blog.lololo.net/blog/2014/03/26/but-you-didnt</id>
-    <content type="html"><![CDATA[<p><img src="http://ilost.qiniudn.com/butyoudidnt0.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt1.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt2.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt3.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt4.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt5.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt6.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt7.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt8.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt9.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt10.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt11.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt12.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt13.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt14.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt15.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt16.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt17.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt18.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt19.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt20.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt21.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt22.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt23.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt24.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt25.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt26.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt27.jpg" alt="" /></p>
-
-<p><img src="http://ilost.qiniudn.com/butyoudidnt28.jpg" alt="" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Objective-C 语言中的类类型]]></title>
-    <link href="blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
+    <link href="http://lololo.github.io/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
     <updated>2014-03-05T11:07:38+08:00</updated>
-    <id>blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c</id>
+    <id>http://lololo.github.io/blog/2014/03/05/the-class-of-class-in-objective-c</id>
     <content type="html"><![CDATA[<p>小菜鸟在学习使用UICollectionView的时候发现个函数：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -173,103 +234,10 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[21个逗逼的英文专辑神翻译，神一样的存在！]]></title>
-    <link href="blog.lololo.net/blog/2014/03/01/album-god-translation/"/>
-    <updated>2014-03-01T15:40:47+08:00</updated>
-    <id>blog.lololo.net/blog/2014/03/01/album-god-translation</id>
-    <content type="html"><![CDATA[<p>最近旅游哥再豆瓣的音乐里发现了一些好玩的东西，一些冷门专辑的中文译名让人感叹这才是神翻译啊。实在太好笑了，来一发大家感受下。</p>
-
-<h3>1</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0.jpg" alt="" /></p>
-
-<h3>2</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-1.jpg" alt="" /></p>
-
-<h3>3</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-2.jpg" alt="" /></p>
-
-<h3>4</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-3.jpg" alt="" /></p>
-
-<h3>5</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-4.jpg" alt="" /></p>
-
-<h3>6</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-5.jpg" alt="" /></p>
-
-<h3>7</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-6.jpg" alt="" /></p>
-
-<h3>8</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-7.jpg" alt="" /></p>
-
-<h3>9</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-8.jpg" alt="" /></p>
-
-<h3>10</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-9.jpg" alt="" /></p>
-
-<h3>11</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-10.jpg" alt="" /></p>
-
-<h3>12</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-11.jpg" alt="" /></p>
-
-<h3>13</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-12.jpg" alt="" /></p>
-
-<h3>14</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-13.jpg" alt="" /></p>
-
-<h3>15</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-14.jpg" alt="" /></p>
-
-<h3>16</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-15.jpg" alt="" /></p>
-
-<h3>17</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-16.jpg" alt="" /></p>
-
-<h3>18</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-17.jpg" alt="" /></p>
-
-<h3>19</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-18.jpg" alt="" /></p>
-
-<h3>20</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-19.jpg" alt="" /></p>
-
-<h3>21</h3>
-
-<p><img src="http://ilost.qiniudn.com/images0-20.jpg" alt="" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[NSLog 输出控制]]></title>
-    <link href="blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi/"/>
+    <link href="http://lololo.github.io/blog/2014/02/28/nslog-shu-chu-kong-zhi/"/>
     <updated>2014-02-28T14:48:17+08:00</updated>
-    <id>blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi</id>
+    <id>http://lololo.github.io/blog/2014/02/28/nslog-shu-chu-kong-zhi</id>
     <content type="html"><![CDATA[<p>NSLog 在 iOS开发调试时非常方便，但也很耗资源。在APP正式发布时把NSLog一条一条注释掉太过麻烦，而且不利于后续开发维护。使用如下操作可以简化操作:</p>
 
 <p>在 <strong>&lsquo;PROGJECTNAME&rsquo;-Prefix.pch</strong> 文件中添加</p>
@@ -298,9 +266,9 @@ debug模式下输出，release模式下不输出</p>
   
   <entry>
     <title type="html"><![CDATA[Hello World]]></title>
-    <link href="blog.lololo.net/blog/2014/02/28/hello-world/"/>
+    <link href="http://lololo.github.io/blog/2014/02/28/hello-world/"/>
     <updated>2014-02-28T12:01:54+08:00</updated>
-    <id>blog.lololo.net/blog/2014/02/28/hello-world</id>
+    <id>http://lololo.github.io/blog/2014/02/28/hello-world</id>
     <content type="html"><![CDATA[<p>搞了一天多，终于把 Octopress 环境搞定了， 以后就用 Octopress 发 Blog 了，哈哈</p>
 ]]></content>
   </entry>

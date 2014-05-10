@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: iOS开发 | 曲径小林]]></title>
-  <link href="blog.lololo.net/blog/categories/ioskai-fa/atom.xml" rel="self"/>
-  <link href="blog.lololo.net/"/>
-  <updated>2014-03-30T23:30:29+08:00</updated>
-  <id>blog.lololo.net/</id>
+  <title><![CDATA[Category: iOS开发 | 下雨了]]></title>
+  <link href="http://lololo.github.io/blog/categories/ioskai-fa/atom.xml" rel="self"/>
+  <link href="http://lololo.github.io/"/>
+  <updated>2014-05-10T19:01:58+08:00</updated>
+  <id>http://lololo.github.io/</id>
   <author>
     <name><![CDATA[lololo]]></name>
     <email><![CDATA[lololo@live.cn]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Objective-C 语言中的类类型]]></title>
-    <link href="blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
+    <link href="http://lololo.github.io/blog/2014/03/05/the-class-of-class-in-objective-c/"/>
     <updated>2014-03-05T11:07:38+08:00</updated>
-    <id>blog.lololo.net/blog/2014/03/05/the-class-of-class-in-objective-c</id>
+    <id>http://lololo.github.io/blog/2014/03/05/the-class-of-class-in-objective-c</id>
     <content type="html"><![CDATA[<p>小菜鸟在学习使用UICollectionView的时候发现个函数：</p>
 
 <p><code>objective-c
@@ -58,9 +58,9 @@ id aString = [[CLString alloc] init];
   
   <entry>
     <title type="html"><![CDATA[NSLog 输出控制]]></title>
-    <link href="blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi/"/>
+    <link href="http://lololo.github.io/blog/2014/02/28/nslog-shu-chu-kong-zhi/"/>
     <updated>2014-02-28T14:48:17+08:00</updated>
-    <id>blog.lololo.net/blog/2014/02/28/nslog-shu-chu-kong-zhi</id>
+    <id>http://lololo.github.io/blog/2014/02/28/nslog-shu-chu-kong-zhi</id>
     <content type="html"><![CDATA[<p>NSLog 在 iOS开发调试时非常方便，但也很耗资源。在APP正式发布时把NSLog一条一条注释掉太过麻烦，而且不利于后续开发维护。使用如下操作可以简化操作:</p>
 
 <p>在 <strong>&lsquo;PROGJECTNAME&rsquo;-Prefix.pch</strong> 文件中添加</p>

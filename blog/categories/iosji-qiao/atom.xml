@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: iOS技巧 | 曲径小林]]></title>
-  <link href="blog.lololo.net/blog/categories/iosji-qiao/atom.xml" rel="self"/>
-  <link href="blog.lololo.net/"/>
-  <updated>2014-03-30T23:30:29+08:00</updated>
-  <id>blog.lololo.net/</id>
+  <title><![CDATA[Category: iOS技巧 | 下雨了]]></title>
+  <link href="http://lololo.github.io/blog/categories/iosji-qiao/atom.xml" rel="self"/>
+  <link href="http://lololo.github.io/"/>
+  <updated>2014-05-10T19:01:58+08:00</updated>
+  <id>http://lololo.github.io/</id>
   <author>
     <name><![CDATA[lololo]]></name>
     <email><![CDATA[lololo@live.cn]]></email>
@@ -14,10 +14,132 @@
 
   
   <entry>
+    <title type="html"><![CDATA[iOS7 StatusBar 使用小结]]></title>
+    <link href="http://lololo.github.io/blog/2014/05/10/statusbar/"/>
+    <updated>2014-05-10T17:49:02+08:00</updated>
+    <id>http://lololo.github.io/blog/2014/05/10/statusbar</id>
+    <content type="html"><![CDATA[<p>iOS7 中的StatusBar和之前版本的相比发生了很大变化，在iOS7下对statusbar的使用需要全新的方法，现在就总结以下statusbar的方法：</p>
+
+<ul>
+<li>样式</li>
+<li>显示和隐藏</li>
+<li>动画效果</li>
+<li>默认无StatusBar</li>
+</ul>
+
+
+<h1>1. 样式</h1>
+
+<p>StatusBar有两种样式：
+UIStatusBarStyleDefault :</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_default.png" alt="default" /></p>
+
+<ul>
+<li>UIStatusBarStyleLightContent</li>
+</ul>
+
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_light.png" alt="LightContent " /></p>
+
+<p>要改变StatusBar的显示样式需要在UIViewController中重载：</p>
+
+<p>```
+&ndash; (UIStatusBarStyle)preferredStatusBarStyle
+{</p>
+
+<pre><code>return UIStatusBarStyleLightContent;
+</code></pre>
+
+<p>}</p>
+
+<p>```
+这个方法不能直接调用，在需要改变样式的地方调用：[self setNeedsStatusBarAppearanceUpdate]</p>
+
+<p>示例：</p>
+
+<p>```
+&ndash; (void)viewWillAppear:(BOOL)animated
+{</p>
+
+<pre><code>[self setNeedsStatusBarAppearanceUpdate];
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<h1>2. 显示和隐藏</h1>
+
+<p>显示和隐藏StatusBar只要在UIViewController中重载：</p>
+
+<p>```
+&ndash; (BOOL)prefersStatusBarHidden
+{</p>
+
+<pre><code>return YES;
+</code></pre>
+
+<p>}</p>
+
+<p>```
+同样式改变一样需要调用 [self setNeedsStatusBarAppearanceUpdate] 方法</p>
+
+<h1>3. 动画效果</h1>
+
+<p>现在有两种动画效果：<code>UIStatusBarAnimationFade ,UIStatusBarAnimationSlide</code>.从他们的名字可以得知他的具体是什么眼的效果。 实现动画需要重载：</p>
+
+<p>```</p>
+
+<ul>
+<li>(UIStatusBarAnimation )preferredStatusBarUpdateAnimation
+{
+  return UIStatusBarAnimationSlide;
+}</li>
+</ul>
+
+
+<p>```</p>
+
+<p>但是重载这个方法后，并没有动画效果。这时，我们需要把 [self setNeedsStatusBarAppearanceUpdate] 放在动画block中执行：</p>
+
+<p>```
+[UIView animateWithDuration:0.3</p>
+
+<pre><code>             animations:^{
+                [self setNeedsStatusBarAppearanceUpdate];
+</code></pre>
+
+<p>}];</p>
+
+<p>```</p>
+
+<p>这样动画效果就出现了。</p>
+
+<h1>4. 默认无StatusBar</h1>
+
+<p>有一些应用默认就没有Statusbar如：</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_no__dome.png" alt="default" /></p>
+
+<p>这样的应用很丑，总感觉缺点什么，但是有些产品经理就是喜欢。</p>
+
+<p>要实现这种效果，最需要在项目配置plist文件总将<code>Status bar is initially hidden</code> 字段设置为
+<code>YES</code>, 添加<code>View controller-based status bar appearance</code> 字段, 并将值设置为 <code>NO</code>：</p>
+
+<p><img src="http://ilost.qiniudn.com/StatusBarstatusbar_no.png" alt="default" /></p>
+
+<h2>其他</h2>
+
+<p>有一些体统提供的组建，如 发送邮件<code>MFMailComposeViewController</code>,无法更改Statabar样式，就是使用它的子类都无法实现，如果有朋友知道如何实现，一定要告诉小弟, 不胜感激</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[修改iOS7下UITableView分割线样式]]></title>
-    <link href="blog.lololo.net/blog/2014/03/30/tableview-separator-line/"/>
+    <link href="http://lololo.github.io/blog/2014/03/30/tableview-separator-line/"/>
     <updated>2014-03-30T23:16:08+08:00</updated>
-    <id>blog.lololo.net/blog/2014/03/30/tableview-separator-line</id>
+    <id>http://lololo.github.io/blog/2014/03/30/tableview-separator-line</id>
     <content type="html"><![CDATA[<p>默认情况下UITableView的分割线左侧稍微短一点：</p>
 
 <p><img src="http://ilost.qiniudn.com/tap1iOStapSeprate02.jpeg" alt="此处输入图片的描述" /></p>

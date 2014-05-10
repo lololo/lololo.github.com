@@ -2,8 +2,8 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: blog.lololo.net
-title: 曲径小林
+url: http://lololo.github.io
+title: 下雨了
 subtitle: 明天会更好
 author: lololo
 simple_search: https://www.google.com/search
@@ -95,7 +95,6 @@ delicious_count: 3
 
 # duoshuo comments
 duoshuo_comments: ture
-duoshuo_short_name: lololo
 
 # Google Analytics
 google_analytics_tracking_id: UA-32131806-1

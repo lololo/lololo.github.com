@@ -94,7 +94,8 @@ delicious_count: 3
 #disqus_show_comment_count: false
 
 # duoshuo comments
-duoshuo_comments: ture
+duoshuo_comments: true
+duoshuo_short_name: lololo
 
 # Google Analytics
 google_analytics_tracking_id: UA-32131806-1
